@@ -1,8 +1,62 @@
-# React + Vite
+# Punk Trivia
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Punk Trivia es un juego de trivia basado en la cultura punk. Responde preguntas y demuestra cuánto sabes sobre la escena punk.
 
-Currently, two official plugins are available:
+## Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Preguntas de trivia sobre la cultura punk.
+- Temporizador para cada pregunta.
+- Resultados al final del juego.
+- Estética punk con fuentes y colores vibrantes.
+
+## Tecnologías Utilizadas
+
+- React
+- SASS (CSS con superpoderes)
+- Google Fonts
+
+## Instalación
+
+1. Clona el repositorio:
+
+    ```sh
+    git clone https://github.com/NerinaHctz/punk-trivia.git
+    cd punk-trivia
+    ```
+
+2. Instala las dependencias:
+
+    ```sh
+    npm install
+    ```
+
+3. Inicia la aplicación:
+
+    ```sh
+    npm start
+    ```
+
+    La aplicación se abrirá en `http://localhost:3000`.
+
+## Estructura del Proyecto
+
+```plaintext
+punk-trivia/
+├── public/
+├── src/
+│   ├── components/
+│   │   ├── MainPage.jsx
+│   │   ├── MainPage.scss
+│   │   ├── Question.jsx
+│   │   ├── Question.scss
+│   │   ├── ProgressBar.jsx
+│   │   ├── ProgressBar.scss
+│   │   ├── Result.jsx
+│   │   ├── Timer.jsx
+│   ├── App.jsx
+│   ├── index.scss
+│   ├── main.jsx
+├── index.html
+├── package.json
+└── README.md
+
