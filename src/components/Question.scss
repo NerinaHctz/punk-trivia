@@ -1,0 +1,19 @@
+$correct-color: green;
+$incorrect-color: red;
+$correct-transparent-color: rgba(0, 128, 0, 0.61);
+$text-color: white;
+
+.correct {
+    background-color: $correct-color;
+    color: $text-color;
+}
+
+.incorrect {
+    background-color: $incorrect-color;
+    color: $text-color;
+}
+
+.correct-transparent {
+    background-color: $correct-transparent-color;
+    color: $text-color;
+}

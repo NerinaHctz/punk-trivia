@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+
+$highlight-color: rgb(183, 0, 255);
+$font-family-primary: 'Roboto Mono', monospace;
+$font-family-secondary: 'Anton', sans-serif;
+$font-family-tertiary: 'Rock Salt', cursive;
+$background-color: #000000;
+$text-color: rgba(255, 255, 255, 0.87);
+
+.main-page {
+    text-align: center;
+}
+
+.title {
+    font-size: 3.2em;
+    line-height: 1.1;
+    margin-top: 0;
+
+    .punk {
+        font-family: $font-family-secondary;
+        color: $highlight-color;
+    }
+
+    .trivia {
+        font-family: $font-family-tertiary;
+        display: inline-block;
+        transform: rotate(-5deg);
+        color: $text-color;
+
+    }
+}
+
+.subtitle {
+    font-size: 1.5em;
+    font-family: $font-family-primary;
+    color: $text-color;
+    margin-top: 10px;
+}
+
+.instructions {
+    font-size: .8em;
+    font-family: $font-family-primary;
+    color: $text-color;
+    margin: 0 20px;
+}
+
+.start-button {
+    border-radius: 20px;
+    border: 2px solid $highlight-color;
+    padding: 0.6em 1.2em;
+    font-size: 1.2em;
+    font-family: $font-family-primary;
+    font-weight: bold;
+    background-color: $background-color;
+    color: $text-color;
+    transition: border-color 0.25s;
+    width: calc(100% - 40px);
+    position: absolute;
+    bottom: 25px;
+    margin: 20px 20px;
+    left: 0;
+}
