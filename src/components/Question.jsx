@@ -42,7 +42,9 @@ const Question = ({
 
     return <>
         <header>
-            <h1 className='question-title'>Punk Trivia</h1>
+            <div className='question-title'>
+                <span className='punk'>Punk</span> <span className='trivia'>Trivia</span>
+            </div>
         </header>
         <ProgressBar currentQuestionIndex={currentQuestionIndex} totalQuestions={totalQuestions} />
         <div className='question-container'>
