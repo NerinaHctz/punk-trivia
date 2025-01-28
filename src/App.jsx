@@ -261,39 +261,37 @@ const App = () => {
     setIsFinished(true)
   }
 
-  return <div className='game-container'>
-    <>
-      {showQuiz ? (
-        <div className='button-container'>
-          {isFinished ? (
-            <Result score={score} total={questions.length} />
-          ) : (
-            <>
-              <Question
-                question={questions[currentQuestionIndex]?.question}
-                options={questions[currentQuestionIndex]?.options}
-                answer={questions[currentQuestionIndex]?.answer}
-                setScore={setScore}
-                setAnswered={setAnswered}
-                setCorrectAnswer={setCorrectAnswer}
-                currentQuestionIndex={currentQuestionIndex}
-                setCurrentQuestionIndex={setCurrentQuestionIndex}
-                finishGame={finishGame}
-                score={score}
-                setTime={setTime}
-                totalQuestions={questions.length}
-                answered={answered}
-                selectedOption={selectedOption}
-              />
-              {!isFinished && <Timer time={time} setTime={setTime} handleTimeUp={handleTimeUp} isFinished={isFinished} />}
-            </>
-          )}
-        </div>
-      ) : (
-        <MainPage onStart={handleStartQuiz} animateTitle={animateTitle} />
-      )}
-    </>
-  </div>
+  return <>
+    {showQuiz ? (
+      <div>
+        {isFinished ? (
+          <Result score={score} total={questions.length} />
+        ) : (
+          <>
+            <Question
+              question={questions[currentQuestionIndex]?.question}
+              options={questions[currentQuestionIndex]?.options}
+              answer={questions[currentQuestionIndex]?.answer}
+              setScore={setScore}
+              setAnswered={setAnswered}
+              setCorrectAnswer={setCorrectAnswer}
+              currentQuestionIndex={currentQuestionIndex}
+              setCurrentQuestionIndex={setCurrentQuestionIndex}
+              finishGame={finishGame}
+              score={score}
+              setTime={setTime}
+              totalQuestions={questions.length}
+              answered={answered}
+              selectedOption={selectedOption}
+            />
+            {/* {!isFinished && <Timer time={time} setTime={setTime} handleTimeUp={handleTimeUp} isFinished={isFinished} />} */}
+          </>
+        )}
+      </div >
+    ) : (
+      <MainPage onStart={handleStartQuiz} animateTitle={animateTitle} />
+    )}
+  </>
 }
 
 export default App

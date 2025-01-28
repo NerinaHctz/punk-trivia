@@ -1,7 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+
 $correct-color: green;
 $incorrect-color: red;
 $correct-transparent-color: rgba(0, 128, 0, 0.61);
 $text-color: white;
+$highlight-color: rgb(183, 0, 255);
+$font-family-primary: 'Roboto Mono', monospace;
+$font-family-secondary: 'Anton', sans-serif;
+$font-family-tertiary: 'Rock Salt', cursive;
+
+.question-title {
+    font-size: 2.2em;
+    line-height: 1.1;
+    margin-top: 9px;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    padding: 10px 0;
+    z-index: 1000;
+
+    .punk {
+        font-family: $font-family-secondary;
+        color: $highlight-color;
+    }
+
+    .trivia {
+        font-family: $font-family-tertiary;
+        display: inline-block;
+        transform: rotate(-5deg);
+        color: $text-color;
+    }
+}
+
+.question-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: -97px 0 20px;
+    padding: 0 20px;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.questions {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: $text-color;
+    margin: 10px;
+    margin-top: 150px;
+
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    margin-top: 36px;
+}
+
+button {
+    margin: 10px 0;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 8px;
+    border: 3px solid $highlight-color;
+    background-color: #1a1a1a;
+    color: $text-color;
+    transition: background-color 0.3s, color 0.3s;
+}
 
 .correct {
     background-color: $correct-color;
@@ -16,4 +88,36 @@ $text-color: white;
 .correct-transparent {
     background-color: $correct-transparent-color;
     color: $text-color;
+}
+
+@media (min-width: 1024px) {
+    .question-container {
+        max-width: 800px;
+    }
+
+    .button-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    button {
+        margin: 10px;
+        width: auto;
+    }
+}
+
+@media (min-width: 768px) {
+    .question-title {
+        font-size: 2.7em;
+    }
+
+    .questions {
+        font-size: 2em;
+    }
+
+    button {
+        font-size: 1.5em;
+    }
+
 }
