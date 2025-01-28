@@ -285,7 +285,7 @@ const App = () => {
                 answered={answered}
                 selectedOption={selectedOption}
               />
-              {!isFinished && <Timer time={time} setTime={setTime} handleTimeUp={handleTimeUp} isFinished={isFinished} />}
+              {/* {!isFinished && <Timer time={time} setTime={setTime} handleTimeUp={handleTimeUp} isFinished={isFinished} />} */}
             </>
           )}
         </div>

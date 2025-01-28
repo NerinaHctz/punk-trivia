@@ -45,27 +45,29 @@ const Question = ({
             <h1 className='question-title'>Punk Trivia</h1>
         </header>
         <ProgressBar currentQuestionIndex={currentQuestionIndex} totalQuestions={totalQuestions} />
-        <h2 className='questions'>{question}</h2>
-        <div className='button-container'>
-            {options.map((option, index) => (
-                <button
-                    key={index}
-                    onClick={() => handleAnswer(option)}
-                    className={
-                        answered
-                            ? option === answer
-                                ? selectedOption !== answer
-                                    ? 'correct-transparent'
-                                    : 'correct'
-                                : option === selectedOption
-                                    ? 'incorrect'
-                                    : ''
-                            : ''
-                    }
-                >
-                    {option}
-                </button>
-            ))}
+        <div className='question-container'>
+            <h2 className='questions'>{question}</h2>
+            <div className='button-container'>
+                {options.map((option, index) => (
+                    <button
+                        key={index}
+                        onClick={() => handleAnswer(option)}
+                        className={
+                            answered
+                                ? option === answer
+                                    ? selectedOption !== answer
+                                        ? 'correct-transparent'
+                                        : 'correct'
+                                    : option === selectedOption
+                                        ? 'incorrect'
+                                        : ''
+                                : ''
+                        }
+                    >
+                        {option}
+                    </button>
+                ))}
+            </div>
         </div>
         <div className='space'></div>
     </>

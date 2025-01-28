@@ -3,6 +3,21 @@ $incorrect-color: red;
 $correct-transparent-color: rgba(0, 128, 0, 0.61);
 $text-color: white;
 
+.question-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.questions {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: $text-color;
+    margin: 10px;
+}
+
 .correct {
     background-color: $correct-color;
     color: $text-color;
