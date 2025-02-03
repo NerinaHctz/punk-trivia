@@ -257,9 +257,7 @@ const App = () => {
     setTime(0)
   }
 
-  const handleTimeUp = () => {
-    setIsFinished(true)
-  }
+  const handleTimeUp = () => setIsFinished(true)
 
   return <>
     {showQuiz ? (
@@ -283,8 +281,10 @@ const App = () => {
               totalQuestions={questions.length}
               answered={answered}
               selectedOption={selectedOption}
+              time={time}
+              handleTimeUp={handleTimeUp}
+              isFinished={isFinished}
             />
-            {/* {!isFinished && <Timer time={time} setTime={setTime} handleTimeUp={handleTimeUp} isFinished={isFinished} />} */}
           </>
         )}
       </div >
