@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import ProgressBar from './ProgressBar'
+import Timer from './Timer'
 import './Question.scss'
 
 const Question = ({
@@ -12,7 +13,10 @@ const Question = ({
     finishGame,
     score,
     setTime,
-    totalQuestions
+    totalQuestions,
+    time,
+    handleTimeUp,
+    isFinished
 }) => {
     const [answered, setAnswered] = useState(false)
     const [correctAnswer, setCorrectAnswer] = useState(false)
@@ -47,6 +51,7 @@ const Question = ({
             </div>
         </header>
         <ProgressBar currentQuestionIndex={currentQuestionIndex} totalQuestions={totalQuestions} />
+        {!isFinished && <Timer time={time} setTime={setTime} handleTimeUp={handleTimeUp} isFinished={isFinished} />}
         <div className='question-container'>
             <h2 className='questions'>{question}</h2>
             <div className='button-container'>

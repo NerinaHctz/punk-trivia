@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+$highlight-color: rgb(183, 0, 255);
+$font-family-secondary: 'Anton', sans-serif;
+
+.timer {
+    font-size: 2em;
+    font-family: $font-family-secondary;
+    color: $highlight-color;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 78px;
+}
+
+@media (min-width: 768px) {
+    .timer {
+        font-size: 4em;
+    }
+}

@@ -14,12 +14,13 @@ $font-family-tertiary: 'Rock Salt', cursive;
 .question-title {
     font-size: 2.2em;
     line-height: 1.1;
-    margin-top: 9px;
+    margin-top: 0px;
+    position: fixed;
     text-align: center;
-    top: 0;
+    top: 16px;
     width: 100%;
-    padding: 10px 0;
     z-index: 1000;
+    left: 0px;
 
     .punk {
         font-family: $font-family-secondary;
@@ -40,7 +41,7 @@ $font-family-tertiary: 'Rock Salt', cursive;
     align-items: center;
     justify-content: center;
     text-align: center;
-    margin: -97px 0 20px;
+    margin: -97px;
     padding: 0 20px;
     height: 100vh;
     overflow: hidden;
@@ -51,7 +52,7 @@ $font-family-tertiary: 'Rock Salt', cursive;
     margin-bottom: 20px;
     color: $text-color;
     margin: 10px;
-    margin-top: 150px;
+    margin-top: -94px;
 
 }
 
@@ -90,6 +91,20 @@ button {
     color: $text-color;
 }
 
+@media (min-width: 768px) {
+    .question-title {
+        font-size: 2.7em;
+    }
+
+    .questions {
+        font-size: 2em;
+    }
+
+    button {
+        font-size: 1.5em;
+    }
+}
+
 @media (min-width: 1024px) {
     .question-container {
         max-width: 800px;
@@ -105,19 +120,4 @@ button {
         margin: 10px;
         width: auto;
     }
-}
-
-@media (min-width: 768px) {
-    .question-title {
-        font-size: 2.7em;
-    }
-
-    .questions {
-        font-size: 2em;
-    }
-
-    button {
-        font-size: 1.5em;
-    }
-
 }
