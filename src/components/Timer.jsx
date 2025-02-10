@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import './Timer.scss'
 
-const Timer = ({ time, setTime, handleTimeUp, isFinished }) => {
+const Timer = ({ time, setTime, handleTimeUp, isFinished, isPaused }) => {
     useEffect(() => {
         if (isFinished) {
             return
@@ -19,7 +19,7 @@ const Timer = ({ time, setTime, handleTimeUp, isFinished }) => {
         }, 1000)
 
         return () => clearInterval(timer)
-    }, [setTime, handleTimeUp, isFinished])
+    }, [setTime, handleTimeUp, isFinished, isPaused])
 
     return <div>
         <p className='timer'>{time}</p>
