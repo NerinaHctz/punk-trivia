@@ -5,6 +5,7 @@ import './Question.scss'
 
 const Question = ({
     question,
+    explanation,
     options = [],
     answer,
     setScore,
@@ -27,25 +28,17 @@ const Question = ({
     const handleAnswer = (selectedOption) => {
         setAnswered(true)
         setSelectedOption(selectedOption)
+        setIsPaused(true)
+        setTimeout(() => {
+            setShowExplanation(true)
+        }, 1000)
+
         if (selectedOption === answer) {
             setCorrectAnswer(true)
             setScore(score + 1)
         } else {
             setCorrectAnswer(false)
-            setIsPaused(true)
-            setShowExplanation(true)
         }
-
-        setTimeout(() => {
-            setAnswered(false)
-            setSelectedOption(null)
-            if (currentQuestionIndex < totalQuestions - 1) {
-                setCurrentQuestionIndex(currentQuestionIndex + 1)
-                setTime(15)
-            } else {
-                finishGame()
-            }
-        }, 500)
     }
 
     const handleContinue = () => {
@@ -93,10 +86,12 @@ const Question = ({
                 ))}
             </div>
             {showExplanation && (
-                <div className='explanation'>
-                    <p>Respuesta correcta: {question.answer}</p>
-                    <p>{question.explanation}</p>
-                    <button onClick={handleContinue}>Continuar</button>
+                <div className='modal'>
+                    <div className='modal-content'>
+                        <p>Respuesta correcta: <b>{answer}</b></p>
+                        <p>{explanation}</p>
+                        <button onClick={handleContinue}>Continuar</button>
+                    </div>
                 </div>
             )}
         </div>

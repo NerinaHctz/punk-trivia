@@ -76,6 +76,49 @@ button {
     transition: background-color 0.3s, color 0.3s;
 }
 
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+}
+
+.modal-content {
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    color: $text-color;
+    margin: 10px;
+}
+
+.modal-content p {
+    margin: 10px 0;
+}
+
+.modal-content button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    background-color: $highlight-color;
+    color: $text-color;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+
+    &:focus {
+        outline: 3px solid $highlight-color;
+        outline-offset: 2px;
+    }
+}
+
 .correct {
     background-color: $correct-color;
     color: $text-color;
