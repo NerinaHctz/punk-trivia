@@ -41,19 +41,19 @@ $font-family-tertiary: 'Rock Salt', cursive;
     align-items: center;
     justify-content: center;
     text-align: center;
-    margin: -97px;
     padding: 0 20px;
-    height: 100vh;
+    height: calc(100vh - 100px);
     overflow: hidden;
+    margin-top: 33px;
+    z-index: 100;
+    position: relative;
 }
 
 .questions {
-    font-size: 1.5em;
+    font-size: 1.2em;
     margin-bottom: 20px;
     color: $text-color;
     margin: 10px;
-    margin-top: -94px;
-
 }
 
 .button-container {

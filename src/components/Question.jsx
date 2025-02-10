@@ -21,6 +21,8 @@ const Question = ({
     const [answered, setAnswered] = useState(false)
     const [correctAnswer, setCorrectAnswer] = useState(false)
     const [selectedOption, setSelectedOption] = useState(null)
+    const [showExplanation, setShowExplanation] = useState(false)
+    const [isPaused, setIsPaused] = useState(false)
 
     const handleAnswer = (selectedOption) => {
         setAnswered(true)
@@ -30,6 +32,8 @@ const Question = ({
             setScore(score + 1)
         } else {
             setCorrectAnswer(false)
+            setIsPaused(true)
+            setShowExplanation(true)
         }
 
         setTimeout(() => {
@@ -42,6 +46,19 @@ const Question = ({
                 finishGame()
             }
         }, 500)
+    }
+
+    const handleContinue = () => {
+        setShowExplanation(false)
+        setIsPaused(false)
+        setAnswered(false)
+        setSelectedOption(null)
+        if (currentQuestionIndex < totalQuestions - 1) {
+            setCurrentQuestionIndex(currentQuestionIndex + 1)
+            setTime(15)
+        } else {
+            finishGame()
+        }
     }
 
     return <>
@@ -75,6 +92,13 @@ const Question = ({
                     </button>
                 ))}
             </div>
+            {showExplanation && (
+                <div className='explanation'>
+                    <p>Respuesta correcta: {question.answer}</p>
+                    <p>{question.explanation}</p>
+                    <button onClick={handleContinue}>Continuar</button>
+                </div>
+            )}
         </div>
         <div className='space'></div>
     </>
