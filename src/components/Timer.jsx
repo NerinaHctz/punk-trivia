@@ -3,7 +3,7 @@ import './Timer.scss'
 
 const Timer = ({ time, setTime, handleTimeUp, isFinished, isPaused }) => {
     useEffect(() => {
-        if (isFinished) {
+        if (isFinished || isPaused) {
             return
         }
 

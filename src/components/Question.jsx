@@ -5,7 +5,9 @@ import './Question.scss'
 
 const Question = ({
     question,
+    explanation,
     options = [],
+    image,
     answer,
     setScore,
     currentQuestionIndex,
@@ -27,25 +29,17 @@ const Question = ({
     const handleAnswer = (selectedOption) => {
         setAnswered(true)
         setSelectedOption(selectedOption)
+        setIsPaused(true)
+        setTimeout(() => {
+            setShowExplanation(true)
+        }, 1000)
+
         if (selectedOption === answer) {
             setCorrectAnswer(true)
             setScore(score + 1)
         } else {
             setCorrectAnswer(false)
-            setIsPaused(true)
-            setShowExplanation(true)
         }
-
-        setTimeout(() => {
-            setAnswered(false)
-            setSelectedOption(null)
-            if (currentQuestionIndex < totalQuestions - 1) {
-                setCurrentQuestionIndex(currentQuestionIndex + 1)
-                setTime(15)
-            } else {
-                finishGame()
-            }
-        }, 500)
     }
 
     const handleContinue = () => {
@@ -68,7 +62,7 @@ const Question = ({
             </div>
         </header>
         <ProgressBar currentQuestionIndex={currentQuestionIndex} totalQuestions={totalQuestions} />
-        {!isFinished && <Timer time={time} setTime={setTime} handleTimeUp={handleTimeUp} isFinished={isFinished} />}
+        {!isFinished && <Timer time={time} setTime={setTime} handleTimeUp={handleTimeUp} isFinished={isFinished} isPaused={isPaused} />}
         <div className='question-container'>
             <h2 className='questions'>{question}</h2>
             <div className='button-container'>
@@ -93,10 +87,13 @@ const Question = ({
                 ))}
             </div>
             {showExplanation && (
-                <div className='explanation'>
-                    <p>Respuesta correcta: {question.answer}</p>
-                    <p>{question.explanation}</p>
-                    <button onClick={handleContinue}>Continuar</button>
+                <div className='modal'>
+                    <div className='modal-content'>
+                        {image && <img src={image} alt="Explicación visual" className="explanation-image" />}
+                        <p>Respuesta correcta: <b>{answer}</b></p>
+                        <p>{explanation}</p>
+                        <button onClick={handleContinue}>Continuar</button>
+                    </div>
                 </div>
             )}
         </div>

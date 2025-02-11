@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import './Result.scss'
 
 export const getFinalMessage = (score) => {
     let message
@@ -26,7 +27,7 @@ export const getFinalMessage = (score) => {
 }
 
 
-function Result({ score, total }) {
+function Result({ score, total, onRestart }) {
     const [message, setMessage] = useState("")
 
     useEffect(() => {
@@ -36,35 +37,40 @@ function Result({ score, total }) {
         setMessage(getFinalMessage(score))
     }, [score, total])
 
-    // const createConfetti = () => {
-    //     const confettiContainer = document.createElement('div');
-    //     confettiContainer.className = 'confetti-container';
-    //     document.body.appendChild(confettiContainer);
 
-    //     for (let i = 0; i < 100; i++) {
-    //         const confetti = document.createElement('div');
-    //         confetti.classList.add('confetti');
-    //         const xPos = Math.random() * 100;
-    //         const delay = Math.random() * 2;
-    //         const duration = 2 + Math.random() * 3;
-    //         confetti.style.left = `${xPos}%`;
-    //         confetti.style.animationDelay = `${delay}s`;
-    //         confetti.style.animationDuration = `${duration}s`;
-    //         confettiContainer.appendChild(confetti);
-    //     }
+    const createConfetti = () => {
+        const confettiContainer = document.createElement('div')
+        confettiContainer.className = 'confetti-container'
+        document.body.appendChild(confettiContainer)
 
-    //     setTimeout(() => {
-    //         confettiContainer.remove();
-    //     }, 5000);
-    // };
+        for (let i = 0; i < 100; i++) {
+            const confetti = document.createElement('div')
+            confetti.classList.add('confetti')
+            const xPos = Math.random() * 100
+            const delay = Math.random() * 2
+            const duration = 2 + Math.random() * 3
+            confetti.style.left = `${xPos}%`
+            confetti.style.animationDelay = `${delay}s`
+            confetti.style.animationDuration = `${duration}s`
+            confettiContainer.appendChild(confetti)
+        }
 
+        setTimeout(() => {
+            confettiContainer.remove()
+        }, 8000)
+    }
 
     return <div className='result-container'>
-        <h1>¡Juego Terminado!</h1>
-        <p>Tu puntaje final es: {score} de {total}</p>
-        <p>{message}</p>
+        <header>
+            <h1 className='title'>
+                <span className='punk'>Punk</span> <span className='trivia'>Trivia</span>
+            </h1>
+        </header>
+        <h1 className='subtitle'>¡Juego Terminado!</h1>
+        <p className='result-score'>Tu puntuación es: <b>{score}</b> de <b>{total}</b></p>
+        <p className='result-message'>{message}</p>
+        <button className='result-button' onClick={onRestart}>Volver a jugar</button>
     </div>
-
 }
 
 export default Result
