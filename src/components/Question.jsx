@@ -7,6 +7,7 @@ const Question = ({
     question,
     explanation,
     options = [],
+    image,
     answer,
     setScore,
     currentQuestionIndex,
@@ -61,7 +62,7 @@ const Question = ({
             </div>
         </header>
         <ProgressBar currentQuestionIndex={currentQuestionIndex} totalQuestions={totalQuestions} />
-        {!isFinished && <Timer time={time} setTime={setTime} handleTimeUp={handleTimeUp} isFinished={isFinished} />}
+        {!isFinished && <Timer time={time} setTime={setTime} handleTimeUp={handleTimeUp} isFinished={isFinished} isPaused={isPaused} />}
         <div className='question-container'>
             <h2 className='questions'>{question}</h2>
             <div className='button-container'>
@@ -88,6 +89,7 @@ const Question = ({
             {showExplanation && (
                 <div className='modal'>
                     <div className='modal-content'>
+                        {image && <img src={image} alt="Explicación visual" className="explanation-image" />}
                         <p>Respuesta correcta: <b>{answer}</b></p>
                         <p>{explanation}</p>
                         <button onClick={handleContinue}>Continuar</button>
