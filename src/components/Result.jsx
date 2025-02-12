@@ -1,27 +1,29 @@
 import React, { useEffect, useState } from 'react'
 import './Result.scss'
 
-export const getFinalMessage = (score) => {
+export const getFinalMessage = (score, total) => {
     let message
 
     if (score < 5) {
-        message = 'Estás empezando. ¡Es hora de profundizar más en la escena punk!'
+        message = 'Parece que estás empezando en esto. ¡Es hora de profundizar más en la movida!'
     } else if (score < 10) {
-        message = 'Ya te estás familiarizando. ¡Sigue rockeando con las leyendas del punk!'
+        message = 'Has atinado alguna, pero aún te queda mucho por aprender. ¡Dale caña y sigue indagando!'
     } else if (score < 15) {
-        message = '¡Buen trabajo! Conoces algo de la historia del punk, pero aún hay mucho por explorar.'
+        message = '¡No está mal! Conoces algo sobre la historia del punk, pero aún hay mucho por explorar.'
     } else if (score < 20) {
-        message = '¡Gran trabajo! Estás familiarizado con los clásicos del punk, pero aún queda mucho punk underground por descubrir.'
+        message = '¡Debuti! Conoces cosillas sobre el punk, pero aún queda mucho por descubrir.'
     } else if (score < 25) {
-        message = '¡Tienes un buen dominio de la historia del punk! Sigue adelante y aprende sobre los héroes olvidados de la escena.'
+        message = '¡Parece que controlas del tema! Pero siempre hay tiempo para descubrir más movidas.'
     } else if (score < 30) {
-        message = '¡Impresionante! Ya te has ganado un lugar en el salón de la fama del punk, pero siempre hay espacio para más conocimiento.'
+        message = '¡Fetén! Parece que sabes de lo que hablas, pero escucharte algún disquito más no te vendría mal...'
     } else if (score < 35) {
-        message = '¡Casi lo logras! Eres un verdadero aficionado al punk, pero algunos hechos poco conocidos aún te escapan.'
+        message = '¡Casi pero no! Aun así, muy guay, controlas bastante sobre el tema.'
     } else if (score < 40) {
-        message = '¡Legendario! Ya casi eres una enciclopedia punk viviente, ¡pero siempre hay algo nuevo por descubrir!'
-    } else if (score === 40) {
-        message = '¡Puntaje perfecto! Eres un verdadero maestro del punk, ¡tu conocimiento de la escena es inigualable!'
+        message = '¡Vamos! Se nota que entiendes del asunto, pero aún te queda alguna cosilla por pulir.'
+    } else if (score < 45) {
+        message = '¡Cojonudo! Eres una enciclopedia punk con patas, pero alguna cosilla se te escapa...'
+    } else if (score === total) {
+        message = '¡Pero cómo eres tan friki! ¡Dónde vas acertándolas todas, máquina! Espero que sepas de otras cosas tanto como de este tema.'
     }
     return message
 }
