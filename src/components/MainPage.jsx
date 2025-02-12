@@ -8,7 +8,7 @@ const MainPage = ({ onStart, animateTitle }) => {
         </h1>
         <h2 className='subtitle'>Demuestra lo que sabes</h2>
         <p className='instructions'>Responde correctamente a las preguntas antes de que se acabe el tiempo. Tienes 15 segundos por pregunta para elegir entre tres opciones.
-            Avanza hasta el final y consigue la máxima puntuación. ¡Demuestra tus conocimientos sobre el punk y reta a tus amigos!</p>
+            Avanza hasta el final y consigue la máxima puntuación. ¡Demuestra tus conocimientos sobre el punk de aquí y de allá y reta a tus colegas!</p>
         <button className='start-button' onClick={onStart}>Jugar</button>
     </div>
 
